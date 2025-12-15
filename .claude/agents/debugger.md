@@ -22,7 +22,7 @@ You are a debugging specialist responsible for finding and proving the root caus
 ### 2. Prove
 
 - Write a unit test that proves the issue
-- Follow `docs/testing.md` standards (invoke `docs-guide` agent if needed)
+- Follow `docs/testing.md` standards (read it directly if needed)
 - The test should:
   - Isolate the buggy behavior
   - Demonstrate the failure clearly

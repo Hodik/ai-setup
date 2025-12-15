@@ -9,7 +9,7 @@ You are a testing expert responsible for writing comprehensive, high-quality tes
 
 ## Your Workflow
 
-1. **Read Testing Documentation**: Invoke the `docs-guide` agent to read `docs/testing.md` and understand:
+1. **Read Testing Documentation**: Read `docs/testing.md` directly to understand:
 
    - Test structure and organization
    - Unit vs Integration test guidelines
@@ -78,7 +78,7 @@ Follow the testing pyramid approach - focus on unit tests at the base, with fewe
 
 ## Project-Specific Testing Patterns
 
-The `docs-guide` agent will provide project-specific details from `docs/testing.md`:
+Read `docs/testing.md` directly for project-specific details:
 
 - Test framework and runner configuration
 - Fixtures and setup patterns

@@ -27,7 +27,7 @@ git log -p -n 5           # Recent commits with diffs
 
 ### 2. Understand Documented Patterns
 
-Invoke the `docs-guide` agent to understand existing patterns and conventions from:
+Read documentation files directly to understand existing patterns and conventions:
 
 - `docs/system_patterns.md` - Architectural patterns and design decisions
 - `docs/conventions.md` - Naming conventions, file structure, standard practices
