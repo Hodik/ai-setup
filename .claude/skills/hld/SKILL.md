@@ -1,10 +1,11 @@
 ---
 description: Create a high-level design document through guided Q&A
 allowed-tools: Read, Write, Glob, AskUserQuestion, Bash
-argument-hint: [feature-name]
 ---
 
-Create a High-Level Design (HLD) document for: **$ARGUMENTS**
+Create a High-Level Design (HLD) document.
+
+**Input from engineer:** $ARGUMENTS
 
 ## Your Role
 
@@ -36,19 +37,33 @@ All HLD content must follow these rules strictly:
 
 ## MANDATORY Workflow
 
-### Step 1: Check for Existing HLD
+### Step 1: Parse Initial Input
 
-Check if `/docs/hlds/$ARGUMENTS.md` already exists:
+The engineer may provide anything from a single feature name to a full brain dump with initial thoughts, architecture ideas, requirements, screenshots, diagrams, or links. Parse ALL of it:
+
+- Extract the feature/project name (for the file name)
+- Identify any design decisions already made
+- Note any requirements, constraints, or context provided
+- Review any screenshots or diagrams shared
+- Flag any information that maps to specific thinking phases below
+
+Use everything provided as a starting point. Don't re-ask questions the engineer already answered in their input.
+
+### Step 2: Check for Existing HLD
+
+Derive a file name from the input. Check if `/docs/hlds/{name}.md` already exists:
 - If it exists: Warn the user and STOP. This command only creates new HLDs.
 - If it doesn't exist: Continue.
 
-### Step 2: Scan Conversation Context
+### Step 3: Scan Conversation Context
 
-Review the current conversation for any existing information about the problem, system, technologies, or requirements. Extract what's already available.
+Review the full conversation (not just the command input) for additional information about the problem, system, technologies, or requirements. Combine with what was extracted in Step 1.
 
-### Step 3: Guide Through 6 Thinking Phases
+### Step 4: Guide Through 6 Thinking Phases
 
 Walk the engineer through each phase by asking targeted questions. Use AskUserQuestion for structured choices when appropriate. Do not skip phases — each one builds on the previous.
+
+**Skip questions already answered by the initial input.** Show the engineer what you extracted and confirm it's correct, then move to the gaps.
 
 **Phase 1 — Understand the Problem**
 
@@ -109,7 +124,7 @@ Ask (using pre-mortem technique):
 
 Each failure mode must be addressed in the design.
 
-### Step 4: Track Progress
+### Step 5: Track Progress
 
 After each user response:
 1. Show which phases are complete / in progress / remaining
@@ -119,7 +134,7 @@ The user can say:
 - "N/A" — skip phase
 - "done" — ready to generate the HLD
 
-### Step 5: Present Summary & Write
+### Step 6: Present Summary & Write
 
 Before writing, show a summary of what will go into each section. Ask user to confirm.
 

@@ -14,7 +14,6 @@ Use git read commands:
 - `git diff --staged` - staged changes
 - `git diff main...HEAD` - all branch changes vs main
 - `git log -p -n 5` - recent commits with diffs
-- `git log -p -n 5` - recent commits with diffs
 
 ## 2. Understand Documented Patterns
 

@@ -2,7 +2,9 @@
 description: Create a high-level design document through guided Q&A
 ---
 
-Create a High-Level Design (HLD) document for: **$ARGUMENTS**
+Create a High-Level Design (HLD) document.
+
+**Input from engineer:** $ARGUMENTS
 
 ## Your Role
 
@@ -26,11 +28,24 @@ You are a **writing assistant**, not a designer. The engineer does all thinking 
 
 ## Workflow
 
-### Step 1: Check for Existing HLD
+### Step 1: Parse Initial Input
 
-Check if `/docs/hlds/$ARGUMENTS.md` exists. If yes — warn and stop.
+The engineer may provide anything — a feature name, a brain dump with design thoughts, requirements, screenshots, diagrams, or links. Parse ALL of it:
 
-### Step 2: Guide Through 6 Thinking Phases
+- Extract the feature/project name (for the file name)
+- Identify any design decisions, requirements, constraints already provided
+- Review any screenshots or diagrams shared
+- Map provided information to the thinking phases below
+
+Don't re-ask questions the engineer already answered in their input.
+
+### Step 2: Check for Existing HLD
+
+Derive a file name from the input. Check if `/docs/hlds/{name}.md` exists. If yes — warn and stop.
+
+### Step 3: Guide Through 6 Thinking Phases
+
+**Skip questions already answered by the initial input.** Show what you extracted, confirm, then fill the gaps.
 
 Walk the engineer through each phase with targeted questions:
 
@@ -67,7 +82,7 @@ Walk the engineer through each phase with targeted questions:
 - DB down? Traffic 10x? Third-party API dies? Bad deployment?
 - Each failure mode must be addressed
 
-### Step 3: Write the HLD
+### Step 4: Write the HLD
 
 After engineer confirms, write to `/docs/hlds/$ARGUMENTS.md` using this template:
 
