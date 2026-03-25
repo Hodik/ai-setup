@@ -1,4 +1,6 @@
-Your task is to **observe and understand** the codebase for the subject
+Your task is to **observe and understand** the codebase for the subject.
+
+Focus area: $ARGUMENTS
 
 ## Guidelines
 
@@ -23,8 +25,8 @@ Your task is to **observe and understand** the codebase for the subject
    - Explain the "why" and "how" of the current implementation
 
 4. **Update Docs**:
-    - Read docs/ folowing @docs.mdc rule
-    - Check if any of the docs needs updating or extending and only put new information to any of them if it's not yet covered and fits docs file's purpose 
+    - Read docs/ following @docs.mdc rule
+    - Check if any of the docs needs updating or extending and only put new information if it's not yet covered and fits the doc file's purpose
 
 ## Output Format
 

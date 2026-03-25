@@ -2,7 +2,7 @@
 
 ## Documentation-First Workflow
 
-**ALWAYS invoke the `docs-guide` agent before starting any work.** This ensures you understand the system architecture, technical context, and existing patterns.
+**ALWAYS read relevant documentation from the `docs/` folder before starting any work.** This ensures you understand the system architecture, technical context, and existing patterns.
 
 ## Project Documentation Structure
 
@@ -14,10 +14,10 @@ This project maintains comprehensive documentation in the `docs/` folder:
 4. `docs/formatting.md` - Language version, formatting rules and conventions, indentation and line length standards
 5. `docs/conventions.md` - Standard app structure, naming conventions, pagination patterns, startup and signal registration
 
-## Agent Workflow
+## Workflow
 
-1. **Before any task**: Invoke `docs-guide` agent to read relevant documentation
-2. **When documentation needs updating**: Invoke `docs-writer` agent to update appropriate doc files
+1. **Before any task**: Read relevant documentation from `docs/` folder
+2. **When documentation needs updating**: Update appropriate doc files directly
 3. **Follow documented patterns**: All work must align with established conventions and architectural decisions
 
 ## Documentation Update Guidelines

@@ -1,10 +1,13 @@
-1. **implement** the requested feature or code change, MUST FOLLOW documentation @docs.mdc.
+Implement the following feature/change: $ARGUMENTS
 
-2. Test implementation with @test.md command 
+## Workflow
 
-3. **Before Finishing**:
+1. **Read documentation** - MUST FOLLOW @docs.mdc before implementing
+2. **Implement** the feature following documented patterns, conventions, and architectural decisions
+3. **Write tests** using @test.md workflow
+4. **Quality checks**:
    - Run linter and fix any errors
-   - Run formatters if any documented in docs/formatting.md
-   - Verify tests pass
-   - Check that code follows project conventions
+   - Run formatters if documented in `docs/formatting.md`
+   - Self-review for bugs, security issues, performance problems, pattern violations
+   - Verify all tests pass
    - Ensure no debug code or comments left behind

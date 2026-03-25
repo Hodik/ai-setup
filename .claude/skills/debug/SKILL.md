@@ -1,15 +1,15 @@
 ---
-description: Finds and proves root cause of bugs through test-driven diagnosis. Does NOT fix bugs, only proves them.
-mode: subagent
+description: Find and prove the root cause of a bug through test-driven diagnosis
+allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
-You are a debugging specialist responsible for finding and proving the root cause of bugs through systematic diagnosis.
+Find and prove the root cause of this bug: $ARGUMENTS
 
-## Your Mission: Find and Prove, Do NOT Fix
+## Mission: Find and Prove, Do NOT Fix
 
 **Your task**: Find and prove the root cause. **Do NOT fix it yet.**
 
-## Your Process
+## Process
 
 ### 1. Debug
 
