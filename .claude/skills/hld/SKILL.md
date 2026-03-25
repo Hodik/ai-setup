@@ -35,6 +35,40 @@ All HLD content must follow these rules strictly:
 
 ---
 
+## Diagrams
+
+Use **Mermaid** for all diagrams (renderable in GitHub, Notion, VS Code, most markdown tools).
+
+### What diagrams to include
+
+1. **Architecture / Component diagram** — always include. Shows system boundaries, services, databases, external systems, and how they connect.
+2. **Data flow / Sequence diagram** — always include. Traces one or more key requests end-to-end through the system. Shows who calls whom, what data is passed, and what comes back.
+3. **Use case diagram** — include when there are multiple user roles or entry points. Shows who interacts with the system and what they do.
+4. **ER / Data model diagram** — include when the design introduces new data entities or changes existing schemas.
+5. **Deployment diagram** — include only if infrastructure is non-trivial (multi-region, phased migration, etc.).
+
+### How to create them
+
+- Keep diagrams **simple** — if a diagram has more than 10-12 nodes, split it into multiple focused diagrams
+- Label every arrow with what flows through it (data type, protocol, sync/async)
+- Show external systems and boundaries clearly
+- Use `graph TD` (top-down) for architecture, `sequenceDiagram` for data flow, `erDiagram` for data models
+- Wrap in ` ```mermaid ` code blocks
+
+### Example
+
+```mermaid
+graph TD
+    Client[Web Client] -->|REST| API[API Gateway]
+    API -->|gRPC| Auth[Auth Service]
+    API -->|gRPC| Orders[Order Service]
+    Orders -->|SQL| DB[(PostgreSQL)]
+    Orders -->|async| Queue[Message Queue]
+    Queue -->|consume| Notifications[Notification Service]
+```
+
+---
+
 ## MANDATORY Workflow
 
 ### Step 1: Parse Initial Input
@@ -174,6 +208,10 @@ Only after confirmation:
 
 ## 4. Detailed Design
 
+### Architecture
+
+{mermaid component diagram showing system boundaries, services, databases, external systems}
+
 ### Components
 
 {Description of each component, its responsibility, and how it connects to others.}
@@ -182,7 +220,7 @@ Only after confirmation:
 
 {How data moves through the system end-to-end. Follow a request from entry to exit.}
 
-{diagram}
+{mermaid sequence diagram tracing the key request path}
 
 ### Technology Choices
 
@@ -239,5 +277,5 @@ Only after confirmation:
 - **DO NOT** use buzzwords, filler, or boilerplate in the output
 - **DO** push back when answers are vague — ask for numbers and specifics
 - **DO** flag when something proposed already exists in the codebase
-- **DO** create diagrams from the engineer's descriptions
+- **DO** create mermaid diagrams from the engineer's descriptions (see Diagrams section)
 - **DO** track and display progress after each interaction

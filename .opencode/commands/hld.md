@@ -26,6 +26,19 @@ You are a **writing assistant**, not a designer. The engineer does all thinking 
 - **Justified** — every component exists because of a concrete requirement.
 - **Clarity-focused** — after reading, next steps should be obvious.
 
+## Diagrams
+
+Use **Mermaid** for all diagrams (renders in GitHub, Notion, VS Code, most markdown tools).
+
+**What to include:**
+1. **Architecture diagram** (always) — system boundaries, services, databases, external systems and connections. Use `graph TD`.
+2. **Data flow / Sequence diagram** (always) — trace key requests end-to-end, show who calls whom. Use `sequenceDiagram`.
+3. **Use case diagram** — when multiple user roles or entry points exist.
+4. **ER / Data model** — when new data entities or schema changes are involved. Use `erDiagram`.
+5. **Deployment diagram** — only if infrastructure is non-trivial.
+
+**Rules:** Keep under 10-12 nodes per diagram (split if larger). Label every arrow with what flows through it. Show external systems and boundaries clearly.
+
 ## Workflow
 
 ### Step 1: Parse Initial Input
@@ -84,7 +97,7 @@ Walk the engineer through each phase with targeted questions:
 
 ### Step 4: Write the HLD
 
-After engineer confirms, write to `/docs/hlds/$ARGUMENTS.md` using this template:
+After engineer confirms, write to `/docs/hlds/{name}.md` using this template:
 
 ```markdown
 # High-Level Design: {Feature Name}
@@ -107,11 +120,14 @@ After engineer confirms, write to `/docs/hlds/$ARGUMENTS.md` using this template
 {One paragraph TL;DR of the chosen solution.}
 
 ## 4. Detailed Design
+### Architecture
+{mermaid component diagram}
+
 ### Components
 {Each component, its responsibility, how it connects.}
 
 ### Data Flow
-{End-to-end request flow. Diagram here.}
+{End-to-end request flow. mermaid sequence diagram.}
 
 ### Technology Choices
 | Technology | Purpose | Why This Over Alternatives |
